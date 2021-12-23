@@ -1,0 +1,29 @@
+package TypeClasses;
+
+public class PlaceInGeneral extends Place{
+	protected String PlaceInGeneral;
+	protected String Weather;
+	
+	public PlaceInGeneral(String PlaceInGeneral) {
+		this.PlaceInGeneral = PlaceInGeneral;
+	}
+	
+	@Override
+	public String getPlace() {
+		return PlaceInGeneral;
+	}
+	public String getWeather() {
+		return weather;
+	}
+	@Override
+	public void setPlace(String place) {
+		this.PlaceInGeneral = place;
+	}
+	
+	public void setWeather(String weather) {
+		this.weather = weather;
+	}
+	public String getWeather() {
+		return weather;
+	}
+}

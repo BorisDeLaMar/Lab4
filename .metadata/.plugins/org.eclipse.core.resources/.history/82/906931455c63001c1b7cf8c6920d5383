@@ -1,0 +1,11 @@
+package TypeClasses;
+
+public class PlaceInGeneral extends Place{
+	protected String PlaceInGeneral;
+	
+	@Override
+	public Place(String PlaceInGeneral) {
+		this.PlaceInGeneral = PlaceInGeneral;
+	}
+	
+}

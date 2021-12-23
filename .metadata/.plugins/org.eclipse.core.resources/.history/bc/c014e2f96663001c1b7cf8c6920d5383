@@ -1,0 +1,9 @@
+package Movement;
+
+import java.util.ArrayList;
+
+public class PLaceChecker {
+	public boolean checker(ArrayList<String> arr, String place) {
+		
+	}
+}

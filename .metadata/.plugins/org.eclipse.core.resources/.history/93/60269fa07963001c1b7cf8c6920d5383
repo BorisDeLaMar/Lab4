@@ -1,0 +1,87 @@
+package Movement;
+import Interfaces.*;
+import TypeClasses.*;
+
+public class Feel implements StandartMethods{
+	RandomCount rInd = new RandomCount();
+	protected Name name;
+
+	//Локальный класс
+	class NervousCondition{
+		protected boolean BrokenNervous;
+		
+		public NervousCondition(boolean BrokenNervous) {
+			this.BrokenNervous = BrokenNervous;
+		}
+		
+		public boolean getNervous() {
+			return BrokenNervous;
+		}
+		public void setNervous(boolean BrokenNervous) {
+			this.BrokenNervous = BrokenNervous;
+		}
+	}
+	
+	NervousCondition BrokenNervous = new NervousCondition(false);
+	
+	public Feel(boolean BrokenNervous) {
+		this.BrokenNervous.setNervous(BrokenNervous);
+	}
+	public Feel() { }
+	
+	public boolean getNervous() {
+		return BrokenNervous.getNervous();
+	}
+	public void setNervous(boolean BrokenNervous) {
+		this.BrokenNervous.setNervous(BrokenNervous);
+	}
+	
+	public boolean Hesitate(int HesitateLevel, Name name) {
+		this.name = name;
+		String[] Emotions = {"Слишком неподходящее место для прятки...", "Он непременно приподымет скатерть!", "Я пропал...", "Я не могу найти ничего подходящего!!!"};
+		double index = rInd.GetRandomIndex(); 
+		double div = (double) HesitateLevel;
+		if (div/10.0 >= Math.abs(index)) {
+			for(int h = 0; h < Emotions.length; h++) {
+				int y = (int) (index+1)%Emotions.length;
+				index += 1;
+				System.out.println(name.getName() + ": " + Emotions[y]);
+			}
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public String laugh(Name name) {
+		String s = name.getName() + ": " + " Апхапхапхахахаппхапаjajaja";
+		return s;
+	}
+	
+	@Override
+	public boolean equals(StandartMethods smth) {
+		NervousCondition feel = (NervousCondition) smth;
+		if (BrokenNervous.getNervous() == feel.getNervous()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	@Override
+	public int hashCode() {
+		NervousCondition feel = new NervousCondition(BrokenNervous.getNervous());
+		String s1 = feel.toString();
+		int result = 31*s1.hashCode();
+		return result;
+	}
+	@Override
+	public String toString() {
+		if (BrokenNervous.getNervous() == true) {
+			return "true";
+		}
+		else {
+			return "false";
+		}
+	}
+}

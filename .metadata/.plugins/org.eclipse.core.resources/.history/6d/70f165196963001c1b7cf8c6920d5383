@@ -1,0 +1,7 @@
+package Movement;
+
+public class PLaceChecker {
+	public static boolean Check(String element, String place) {
+		return element.equals(place);
+	}
+}

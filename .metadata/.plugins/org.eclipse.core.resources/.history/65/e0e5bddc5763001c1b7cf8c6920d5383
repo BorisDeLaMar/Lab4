@@ -1,0 +1,51 @@
+package TypeClasses;
+import Movement.RandomCount;
+import Interfaces.*;
+
+public enum Today implements ConvertToString{
+	MONDAY("Понедельник - день-бездельник"),
+	TUESDAY("Вторник - повторник"),
+	WEDNESDAY("Среда - тамада"),
+	THURSDAY("Четверг - я заботы все отверг"),
+	FRIDAY("Пятница - пьяница"),
+	SATURDAY("Суббота - безработа"),
+	SUNDAY("Воскресенье - день веселья");
+	
+	protected static  String s = "Как-то тихим теплым днем";
+	private String title;
+	Today(String title){
+		this.title = title;
+	}
+	
+	public static String shortInfo(){
+		RandomCount rInd = new RandomCount();
+		double index = 6*Math.abs(rInd.GetRandomIndex());
+		int today = (int) index;
+		if (today == 0) {
+			return s + Today.MONDAY.toString();
+		}
+		else if(today == 1){
+			return s + Today.TUESDAY.toString();
+		}
+		else if(today == 2){
+			return s + Today.WEDNESDAY.toString();
+		}
+		else if(today == 3){
+			return s + Today.THURSDAY.toString();
+		}
+		else if(today == 4){
+			return s + Today.FRIDAY.toString();
+		}
+		else if(today == 5){
+			return s + Today.SATURDAY.toString();
+		}
+		else{
+			return s + Today.SUNDAY.toString();
+		}
+	}
+	
+	@Override
+	public String toString() {
+		return title;
+	}
+}

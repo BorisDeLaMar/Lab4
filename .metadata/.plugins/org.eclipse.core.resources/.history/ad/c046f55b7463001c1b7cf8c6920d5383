@@ -1,0 +1,7 @@
+package Movement;
+
+public class heightChecker {
+	public static boolean heightCheck() {
+		
+	}
+}
